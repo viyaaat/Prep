@@ -1,7 +1,7 @@
 <html lang="en">
-<%- include("../partials/head.ejs") %>
+<%- include("../partials/header.ejs") %>
 
-    <body>
+    
         <%- include("../partials/navbar.ejs") %>
 
             <div class="details content">
@@ -28,9 +28,8 @@
 
             </div>
 
-            <%- include("../partials/footer.ejs") %>
+            
 
-    </body>
     <script>
         const trashcan = document.querySelector('a.delete');
         trashcan.addEventListener('click', (e) => {
@@ -43,4 +42,4 @@
         })
     </script>
 
-</html>
+<%- include("../partials/footer.ejs") %>
