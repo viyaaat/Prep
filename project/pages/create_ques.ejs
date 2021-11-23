@@ -1,0 +1,33 @@
+< !DOCTYPE html>
+    <html lang="en">
+
+    <%- include('../partials/head.ejs') %>
+
+        <body>
+            <%- include('../partials/navbar.ejs') %>
+
+                <div class="create-blog content">
+
+                    <form action="/ques" method="POST">
+                        <h1>Share Question</h1>
+                        <label for="title">Company *
+                        </label>
+                        <input type="text" id="title" required name="title">
+                        <br>
+                        <label for="topic">Topics * </label>
+                        <input type="text" id="snippet" name="topic" required>
+                        <br>
+                        <label for="body">Write Question Here *</label>
+                        <textarea id="body" cols="10" rows="2" required name="body"></textarea>
+                        <br>
+
+                        <button>Submit</button>
+                        <input type="text" class="invisible" name="author" value="<%=user._id %>">
+                    </form>
+                </div>
+                <%- include('../partials/footer.ejs') %>
+
+        </body>
+
+
+    </html>

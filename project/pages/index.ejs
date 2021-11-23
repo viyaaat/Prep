@@ -7,9 +7,10 @@
         <%- include('../partials/navbar.ejs') %>
 
             <div class="blogs content">
-                <h2 style="color: rgb(6, 155, 6);">
+                <h2 class="spl" style="color: rgb(6, 155, 6);">
                     <%= title %> EXPERIENCES
                 </h2>
+                <button class="spl" onclick="window.location.href='/blogs/create'">share Experience</button>
                 <% if(title!=='PERSONAL' ){ %>
                     <form class="searchbar" action="/blogs/company" method="get">
                         <input type="text" placeholder="search by company name" name="search" required>

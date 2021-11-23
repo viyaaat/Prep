@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+
+    <body>
+
+        <%- include('../partials/navbar.ejs') %>
+
+            <div class="blogs content">
+                <div>
+                    <h2 class="spl" style="color: rgb(6, 155, 6);">
+                        <%= title %> QUESTIONS
+                    </h2>
+                    <button class="spl" onclick="window.location.href='/ques/create'">Share Questions</button>
+                </div>
+                <% if(title!=='PERSONAL' ){ %>
+                    <form class="searchbar" action="/ques/topic" method="get">
+                        <input type="text" placeholder="search by topics or Company" name="search" required>
+                        <button>search</button>
+                    </form>
+                    <% } %>
+                        <% if (ques.length> 0) { %>
+                            <% ques.forEach(que=> { %>
+                                <a class="single" href="/ques/<%= que._id %> ">
+                                    <h3 class="title">
+                                        <%= que.title %>
+                                    </h3>
+                                    <p class="snippet">
+                                        <%= que.topic %>
+                                    </p>
+                                </a>
+                                <% }) %>
+                                    <% } else { %>
+                                        <p>There is nothing to display...</p>
+                                        <% } %>
+
+            </div>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>

@@ -201,3 +201,7 @@ button {
 .searchbar {
   background-color: rgba(0, 247, 194, 0.774);
 }
+.spl {
+  display: inline-block;
+  margin-right: 22%;
+}
