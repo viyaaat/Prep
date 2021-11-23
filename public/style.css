@@ -194,6 +194,7 @@ button {
 button {
   cursor: pointer;
 }
-#invisible {
+.invisible {
+  height: 0.2px;
   opacity: 0;
 }
