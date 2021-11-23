@@ -15,7 +15,8 @@
                 <h4>
                     <a href="/user/<%= blog.author %> ">Author</a>
                     <% if(blog.author==user._id){ %>
-                        <a class="delete" data-doc="<%= blog._id %> "><button>Delete</button></a>
+                        <a class="delete" data-doc="<%= blog._id %> "><button type="button" class="btn btn-danger">Delete</button>
+</a>
 
                         <% } %>
                 </h4>
