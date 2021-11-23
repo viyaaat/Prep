@@ -1,0 +1,46 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+    <body>
+        <%- include("../partials/navbar.ejs") %>
+
+            <div class="details content">
+
+
+                <h2 style="color: crimson; ">
+                    <%= blog.title %>,
+                        <%= blog.snippet %>
+                </h2>
+
+                <h4>
+                    <a href="/user/<%= blog.author %> ">Author</a>
+                    <% if(blog.author==user._id){ %>
+                        <a class="delete" data-doc="<%= blog._id %> "><button>Delete</button></a>
+
+                        <% } %>
+                </h4>
+
+                <div class="content">
+                    <p>
+                        <%= blog.body %>
+                    </p>
+                </div>
+
+            </div>
+
+            <%- include("../partials/footer.ejs") %>
+
+    </body>
+    <script>
+        const trashcan = document.querySelector('a.delete');
+        trashcan.addEventListener('click', (e) => {
+            const endpoint = `/blogs/${trashcan.dataset.doc}`;
+            fetch(endpoint, {
+                method: 'DELETE'
+            }).then((response) => response.json())
+                .then((data) => window.location.href = data.redirect)
+                .catch(err => console.log(err));
+        })
+    </script>
+
+</html>
