@@ -76,6 +76,7 @@ h4 {
 .content {
   margin-left: 20px;
   min-height: 30vh;
+  overflow-wrap: break-word;
 }
 
 /* index styles */

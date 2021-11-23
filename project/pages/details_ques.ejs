@@ -1,46 +1,37 @@
-<html lang="en">
-<%- include("../partials/head.ejs") %>
-
-    <body>
-        <%- include("../partials/navbar.ejs") %>
-
-            <div class="details content">
+<%- include("../partials/header.ejs") %>
 
 
-                <h2 style="color: crimson; ">
-                    <%= ques.title %>,
-                        <%= ques.topic %>
-                </h2>
+    <%- include("../partials/navbar.ejs") %>
 
-                <h4>
-                    <a href="/user/<%= ques.author %> ">Author</a>
-                    <% if(ques.author==user._id){ %>
-                        <a class="delete" data-doc="<%= ques._id %> "><button>Delete</button></a>
+    <div class="details content">
+        <h2 style="color: crimson"><%= ques.title %>, <%= ques.topic %></h2>
 
-                        <% } %>
-                </h4>
+        <h4>
+            <a href="/user/<%= ques.author %> ">Author</a>
+            <% if(ques.author==user._id){ %>
+            <a class="delete" data-doc="<%= ques._id %> "
+                ><button>Delete</button></a
+            >
 
-                <div class="content">
-                    <p>
-                        <%= ques.body %>
-                    </p>
-                </div>
+            <% } %>
+        </h4>
 
-            </div>
+        <pre class="content">
+            <p><%= ques.body %></p>
+        </pre>
+    </div>
 
-            <%- include("../partials/footer.ejs") %>
-
-    </body>
     <script>
-        const trashcan = document.querySelector('a.delete');
-        trashcan.addEventListener('click', (e) => {
+        const trashcan = document.querySelector("a.delete");
+        trashcan.addEventListener("click", (e) => {
             const endpoint = `/ques/${trashcan.dataset.doc}`;
             fetch(endpoint, {
-                method: 'DELETE'
-            }).then((response) => response.json())
-                .then((data) => window.location.href = data.redirect)
-                .catch(err => console.log(err));
-        })
+                method: "DELETE",
+            })
+                .then((response) => response.json())
+                .then((data) => (window.location.href = data.redirect))
+                .catch((err) => console.log(err));
+        });
     </script>
 
-</html>
+<%- include("../partials/footer.ejs") %>
