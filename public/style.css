@@ -198,3 +198,6 @@ button {
   height: 0.2px;
   opacity: 0;
 }
+.searchbar {
+  background-color: rgba(0, 247, 194, 0.774);
+}

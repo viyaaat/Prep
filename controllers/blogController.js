@@ -16,6 +16,21 @@ const blog_index = (req, res) => {
             console.log(err);
         })
 }
+const blog_company = (req, res) => {
+    const comp = req.query.search;
+    Blog.find({ 'snippet': comp }).sort({
+        createdAt: -1
+    })
+        .then((result) => {
+            res.render('../project/pages/index', {
+                title: "SEARCHED",
+                blogs: result
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
 const blog_my = (req, res) => {
     const id = req.params.id;
     Blog.find({ "author": id }).sort({
@@ -65,4 +80,4 @@ const blog_create_post = (req, res) => {
         })
 }
 
-module.exports = { blog_index, blog_my, blog_delete, blog_details, blog_create_get, blog_create_post };
+module.exports = { blog_index, blog_company, blog_my, blog_delete, blog_details, blog_create_get, blog_create_post };
