@@ -21,7 +21,7 @@ app.use(express.json());
 const dbURI = "mongodb+srv://viyaaat:Akash372001@nodetuts.h8kjj.mongodb.net/akakak?retryWrites=true&w=majority";
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
-        console.log('Database connected');
+        console.log('Welcome');
         app.listen(3000);
     })
     .catch((err) => console.log(err));
